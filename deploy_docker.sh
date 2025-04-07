@@ -13,4 +13,4 @@ sudo docker build -t pg50226-drumlace .
 
 sudo docker tag pg50226-drumlace asemanas/drumlace:latest
 # Step 3: Push the Docker image to Docker Hub
-sudo docker push asemanas/drumlace:latest
+#sudo docker push asemanas/drumlace:latest

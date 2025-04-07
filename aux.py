@@ -82,20 +82,26 @@ def pad (inst_lines,time_sig):
         i+=1
 
 #decomposição de frações greedy algorithm for egypcian fractions com alteração
-#para ser tudo par
+#para ser tudo potencias de 2 tem que se chamar frac_decomp
+
 def frac_decomp(number):
-    nr=Fraction(number).numerator
-    dr=Fraction(number).denominator
-    fr_list=[]#lista de frações
-    while nr!=0:
-        x= math.ceil(dr/nr)
-        if x%2 !=0 :
-            x-=1
-        if (x>0):
-            fr_list.append(x)
-        nr = x*nr-dr
-        dr=dr*x
-    return(fr_list)
+    a=Fraction(number).numerator
+    b=Fraction(number).denominator
+    frac = Fraction(a, b)
+    fr_list = []
+    power = 0
+    while frac > 0:
+        # Find the smallest power of 2 such that 1/2^power <= frac
+        while Fraction(1, 2**power) > frac:
+            power += 1
+        unit_frac = Fraction(1, 2**power)
+        fr_list.append(unit_frac.denominator)
+        frac -= unit_frac
+        power += 1  # Ensure the next unit is smaller
+        if (power >= 9):
+          break
+    return fr_list
+  
 
 #falta fazer função de espaços em branco para sequencia
 inst_list=['hh','bd','sn','tomfl','cymc']
