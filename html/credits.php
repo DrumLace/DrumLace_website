@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DrumLace Credits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="topnav">
+        <a class="active"href="./index.php">Home</a>
+        <a href="./Tutorial.php" >Tutorial</a>
+        <a href="./doc.php" >Documentation</a>
+        <a href="./Feedback.php">Feedback</a>
+        <a href="./credits.php">Credits</a>
+      </div>
+    </nav>
+
 <section aria-label="Credits">
     <h2>Credits</h2>
     <table>
