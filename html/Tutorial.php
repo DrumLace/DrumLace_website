@@ -13,7 +13,7 @@
         <a href="./Tutorial.php" >Tutorial</a>
         <a href="./doc.php" >Documentation</a>
         <a href="./Feedback.php">Feedback</a>
-        <a href="./credits.php">Feedback</a>
+        <a href="./credits.php">Credits</a>
       </div>
     </nav>
   <center><h1>Tutorial</h1></center>  
