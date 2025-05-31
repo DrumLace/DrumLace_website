@@ -11,9 +11,10 @@
     <nav>
       <div class="topnav">
         <a href="./index.php">Home</a>
-        <a href="./Tutorial.php" target="_blank">Tutorial</a>
-        <a href="./doc.php" target="_blank">Documentation</a>
-        <a href="./Feedback.php"target="_blank">Feedback</a>
+        <a href="./Tutorial.php" >Tutorial</a>
+        <a href="./doc.php" >Documentation</a>
+        <a href="./Feedback.php" >Feedback</a>
+        <a href="./credits.php">Feedback</a>
       </div>
     </nav>
 <div class="row">
