@@ -17,11 +17,4 @@
         <a href="./credits.php">Feedback</a>
       </div>
     </nav>
-<div class="row">
-    <div class="column">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNajQkmG81xChc-OBbpmC5sKg-owIEwKtWLhh2oZV9HwoTOg/viewform?embedded=true" width="640" height="3469" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-    <div class="column">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf-Sb80jabtKtVMIvyMMjJlM-LQvi71N2F84l0fP_8JSbVq-g/viewform?embedded=true" width="640" height="443" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-</div>
-</div>
