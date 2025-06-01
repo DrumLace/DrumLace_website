@@ -1,0 +1,6 @@
+plates={4/4;Tempo=110;
+  hh 1/8 |XXXXXXXX|;}
+
+res=plates;
+
+export(res)
