@@ -43,6 +43,8 @@ note_seq : (HIT|PAUSE|DOT|("{"tuplet"}"))*
 
 tuplet: (HIT|PAUSE|("{"tuplet"}"))*
 
+#note_loop: "("HIT|PAUSE|DOT","INT")"
+
 #=========================================LEXER==================================================
 
 TEMPO : INT

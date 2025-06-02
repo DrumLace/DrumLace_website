@@ -35,6 +35,8 @@ def noteseq(note_length,instrument,tree):
             patternlist[ID][index].inst_lines[instrument].append(f"d{note_length}")
         elif(i.data=="tuplet"):
             tuplet(note_length,instrument,i)
+        elif(i.data=="note_loop"):
+            print("aAAAAAA")
 
 def notes(instrument,self,tree):
         global patterns
