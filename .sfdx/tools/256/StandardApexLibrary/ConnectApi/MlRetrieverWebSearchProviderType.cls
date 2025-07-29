@@ -1,3 +1,0 @@
-global enum MlRetrieverWebSearchProviderType {
-BRIGHTDATA
-}
