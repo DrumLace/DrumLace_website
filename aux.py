@@ -25,24 +25,33 @@ export_type['WAV']="\midi{}"
 export_type['Play']="\midi{}"
 export_type['PDF']="\layout{}"
 
-def calc_time(inst_line): #calcula o tempo de cada linha de inst
-    valuelist=[]
-    total_time=0
+def calc_time(inst_line):  # calcula o tempo de cada linha de inst
+    valuelist = []
+    total_time = 0
     for note in inst_line:
-        mult=1
-        if (note[0]=='r'):
-            note=note[1:]
-        elif (note[0]=='t'):
-            note=int(note.split("[")[1][1])/2
-        elif (note[0]=='d'):
-            note=note[1:]  
-            mult=1.5 
-        a=(1/int(note))*mult # duração da nota
-        valuelist.append(a)
-        total_time+=a
+        mult = 1
+        if note[0] == 'r':  # Rest
+            note = note[1:]
+        elif note[0] == 't':  # Tuplet
+            tuplet_parts = note.split("[")
+            tuplet_ratio = tuplet_parts[0][1:]  # Extract the ratio (e.g., "3/2")
+            numerator, denominator = map(int, tuplet_ratio.split("/"))
+            tuplet_length = 1 / denominator  # Base length of the tuplet
+            mult = numerator / denominator  # Adjust for the tuplet ratio
+            total_time += tuplet_length * mult * len(tuplet_parts[1].split("'")) // 2
+            continue
+        elif note[0] == 'd':  # Dotted note
+            note = note[1:]
+            mult = 1.5
+        try:
+            a = (1 / int(note)) * mult  # Duração da nota
+            valuelist.append(a)
+            total_time += a
+        except ValueError:
+            print(f"Warning: Unable to calculate time for note '{note}'")
     if not len(inst_line):
-        total_time=0
-    return(total_time)
+        total_time = 0
+    return total_time
 
 # faz padding para que todas as linhas tenham o tamanho da maior
 def pad (inst_lines,time_sig): 
