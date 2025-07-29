@@ -24,19 +24,29 @@ def tuplet(note_length,instrument,tree):
     patternlist[ID][index].inst_lines[instrument].append(tupstr)
     return(tupstr)
 
-def noteseq(note_length,instrument,tree):
-    global ID,index
+def noteseq(note_length, instrument, tree):
+    global ID, index
     for i in tree.children:
-        if (i=='X' or i=='x'):
+        if i == 'X' or i == 'x':
             patternlist[ID][index].inst_lines[instrument].append(str(note_length))
-        elif (i=='.'):
+        elif i == '.':
             patternlist[ID][index].inst_lines[instrument].append(f"r{note_length}")
-        elif (i=='d' or i=='D'):
+        elif i == 'd' or i == 'D':
             patternlist[ID][index].inst_lines[instrument].append(f"d{note_length}")
-        elif(i.data=="tuplet"):
-            tuplet(note_length,instrument,i)
-        elif(i.data=="note_loop"):
-            print("aAAAAAA")
+        elif i.data == "tuplet":
+            tuplet(note_length, instrument, i)
+        elif i.data == "note_loop":
+            element = i.children[0]  # The note, pause, dot, or tuplet
+            repeat_count = int(i.children[1])  # The number of repetitions
+            for _ in range(repeat_count):
+                if element == 'X' or element == 'x':
+                    patternlist[ID][index].inst_lines[instrument].append(str(note_length))
+                elif element == '.':
+                    patternlist[ID][index].inst_lines[instrument].append(f"r{note_length}")
+                elif element == 'd' or element == 'D':
+                    patternlist[ID][index].inst_lines[instrument].append(f"d{note_length}")
+                elif element.data == "tuplet":
+                    tuplet(note_length, instrument, element)
 
 def notes(instrument,self,tree):
         global patterns

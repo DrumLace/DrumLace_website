@@ -39,7 +39,9 @@ instrument_lines : (INST notes+ ";")+ -> instrument_lines
 
 ?notes : ("1" "/" NOTE_LENGTH "|" note_seq "|")*
 
-note_seq : (HIT|PAUSE|DOT|("{"tuplet"}"))*
+note_seq : (HIT|PAUSE|DOT|("{" tuplet "}")|note_loop)*
+
+note_loop : "(" (HIT|PAUSE|DOT|("{" tuplet "}")) "," INT ")" -> note_loop
 
 tuplet: (HIT|PAUSE|("{"tuplet"}"))*
 
