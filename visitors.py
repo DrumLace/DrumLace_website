@@ -36,17 +36,18 @@ def noteseq(note_length, instrument, tree):
         elif i.data == "tuplet":
             tuplet(note_length, instrument, i)
         elif i.data == "note_loop":
-            element = i.children[0]  # The note, pause, dot, or tuplet
+            sequence = i.children[0]  # The sequence to be repeated
             repeat_count = int(i.children[1])  # The number of repetitions
             for _ in range(repeat_count):
-                if element == 'X' or element == 'x':
-                    patternlist[ID][index].inst_lines[instrument].append(str(note_length))
-                elif element == '.':
-                    patternlist[ID][index].inst_lines[instrument].append(f"r{note_length}")
-                elif element == 'd' or element == 'D':
-                    patternlist[ID][index].inst_lines[instrument].append(f"d{note_length}")
-                elif element.data == "tuplet":
-                    tuplet(note_length, instrument, element)
+                for element in sequence.children:
+                    if element == 'X' or element == 'x':
+                        patternlist[ID][index].inst_lines[instrument].append(str(note_length))
+                    elif element == '.':
+                        patternlist[ID][index].inst_lines[instrument].append(f"r{note_length}")
+                    elif element == 'd' or element == 'D':
+                        patternlist[ID][index].inst_lines[instrument].append(f"d{note_length}")
+                    elif element.data == "tuplet":
+                        tuplet(note_length, instrument, element)
 
 def notes(instrument,self,tree):
         global patterns
